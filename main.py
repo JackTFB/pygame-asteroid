@@ -23,6 +23,7 @@ def main():
         screen.fill((0, 0, 0))
 
         player.draw(screen)
+        player.update(dt)
 
         # MAKE SURE THIS IS LAST
         pygame.display.flip()
