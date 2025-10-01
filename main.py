@@ -44,6 +44,10 @@ def main():
             if asteroid.collision_check(player):
                 print("Game Over")
                 return
+            for shot in shots:
+                if asteroid.collision_check(shot):
+                    shot.kill()
+                    asteroid.split()
 
         # MAKE SURE THIS IS LAST
         pygame.display.flip()
