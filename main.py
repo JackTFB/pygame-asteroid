@@ -1,6 +1,7 @@
 import pygame
 import constants
 from constants import SCREEN_WIDTH, SCREEN_HEIGHT
+from player import Player
 
 def main():
     print("Starting Asteroids!")
@@ -8,6 +9,7 @@ def main():
     print(f"Screen height: {SCREEN_HEIGHT}")
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    player = Player(x = SCREEN_WIDTH / 2, y = SCREEN_HEIGHT / 2)
 
     clock = pygame.time.Clock()
     dt = 0
@@ -19,6 +21,8 @@ def main():
                 return
 
         screen.fill((0, 0, 0))
+
+        player.draw(screen)
 
         # MAKE SURE THIS IS LAST
         pygame.display.flip()
