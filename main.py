@@ -24,7 +24,7 @@ def main():
     AsteroidField.containers = updatable
 
     player = Player(x=SCREEN_WIDTH / 2, y=SCREEN_HEIGHT / 2)
-    fielc = AsteroidField()
+    field = AsteroidField()
 
     while True:
 
@@ -37,6 +37,10 @@ def main():
         updatable.update(dt)
         for thing in drawable:
             thing.draw(screen)
+        for asteroid in asteroids:
+            if asteroid.collision_check(player):
+                print("Game Over")
+                return
 
         # MAKE SURE THIS IS LAST
         pygame.display.flip()
